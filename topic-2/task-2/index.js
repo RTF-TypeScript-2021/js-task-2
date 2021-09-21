@@ -3,18 +3,32 @@
  * Допишите функцию, разбивающую массив на группы по размеру
  * Если массив не может быть разделен равномерно, последней частью
  * будут оставшиеся элементы. Порядок элементов внутри группы важен.
- * 
+ *
  * arrayStripped(['a', 'b', 'c', 'd'], 2)) => [['a', 'b'], ['c', 'd']]
  * arrayStripped([1, 'b', 5, 0, 'c'], 2)) => [[1, 'b'], [5, 0], ['c']]
- * 
+ *
  * Если разбивать на группы нечего, выведите пустой массив.
- * 
+ *
  * @param {*} array массив на вход
  * @param {*} size из скольких элементов состоит группа
  * @returns массив разбитый на группы
-*/
+ */
 const arrayStripped = (array, size) => {
+    if (array === null){
+        throw new Error('Argument error. Argument array must not be null.');
+    }
+    if (!Number.isInteger(size) || size < 1){
+        throw new Error('Argument error. Argument size must be an integer greater than 1.');
+    }
+    if (!Array.isArray(array)){
+        return [];
+    }
+    let result = [];
+    for (let start = 0; start < array.length; start+=size){
+        result.push(array.slice(start, start + size));
+    }
 
+    return result;
 }
 
 

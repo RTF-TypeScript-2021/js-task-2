@@ -16,7 +16,25 @@
  * @param {*} group 
  */
 function isGroup(group) {
+    if (!(group instanceof String)){
+        return false;
+    }
+    const pairs = {'(': ')', '[': ']', '{': '}'};
+    const closedBrackets = Object.values(pairs);
+    const stack = [];
+    for (let char of group){
+        if (char in pairs){
+            stack.push(char);
+        } else if (closedBrackets.indexOf(char) !== -1){
+            if (stack.length === 0 || pairs[stack.pop()] !== char){
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 
+    return stack.length === 0;
 }
 
 module.exports.isGroup = isGroup;

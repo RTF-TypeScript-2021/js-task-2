@@ -7,8 +7,12 @@
 
 const miniMathLib = {
     pi: 3.14,
-    circleArea: function(radius) {
-        
+    circleArea: function (radius) {
+        if (!Number.isFinite(radius) || radius < 0){
+            throw new Error('Argument error. Argument radius must be a not negative number.');
+        }
+
+        return this.pi * radius * radius;
     }
 }
 

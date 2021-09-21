@@ -10,10 +10,26 @@
  * в которую передается значение Пи, необходимое для расчетов
  * */
 const miniMathLibExtended = {
+    pi: 3.14,
+    volume: function (radius, height){
+        const isCorrectParam = (param) => Number.isFinite(param) && param >= 0;
+        if (!isCorrectParam(radius)) {
+            throw new Error('Argument error. Argument radius must be a not negative number.');
+        }
+        if (!isCorrectParam(height)) {
+            throw new Error('Argument error. Argument height must be a not negative number.');
+        }
+
+        return height * this.pi * radius * radius;
+    }
 }
 
 function cylinderVolumeAccurate(pi){
-    
+    const newConstants = {
+        pi: pi
+    };
+
+    return miniMathLibExtended.volume.bind(newConstants);
 }
 
 module.exports.miniMathLibExtended = miniMathLibExtended;

@@ -7,7 +7,11 @@ import {miniMathLib} from "../task-4";
  * Модифицировать miniMathLib из прошлой задачи - запрещено
  */
 function accurateAreaCalc() {
-    
+    const newConstants = {
+        pi: 3.14159
+    };
+
+    return miniMathLib.circleArea.bind(newConstants);
 }
 
 
