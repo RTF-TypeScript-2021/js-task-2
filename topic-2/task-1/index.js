@@ -9,7 +9,14 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
-    
+    if(numbers.length === 0) return [];
+    const minIdx = numbers.indexOf(numbers.reduce((min, el)=> {
+        if(el<min){
+            return el;
+        }
+        return min;
+    }));
+    return numbers.filter((_,idx)=>idx !== minIdx); 
 }
 
 module.exports.removeSmallest = removeSmallest;
