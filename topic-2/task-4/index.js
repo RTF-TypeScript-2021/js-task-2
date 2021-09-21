@@ -8,9 +8,12 @@
 const miniMathLib = {
     pi: 3.14,
     circleArea: function(radius) {
-        
+        if(radius<0){
+            throw new Error('r < 0')
+        }
+
+        return radius*radius*miniMathLib.pi;
     }
 }
-
 
 module.exports.miniMathLib = miniMathLib
