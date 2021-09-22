@@ -20,11 +20,10 @@ function isGroup(group) {
         ['(',')'],
         ['{','}'],
         ['[',']']
-    ]
+    ];
     for(let i = 0; i< group.length/2; i++){
         for(let j = 0; j < 3; j++){
             if(group[i] === arrayGroup[j][0] && group[group.length-i-1] !== arrayGroup[j][1]){
-
                 return false;
             }
         }

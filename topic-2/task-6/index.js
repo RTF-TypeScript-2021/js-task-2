@@ -13,8 +13,9 @@ const miniMathLibExtended = {
     pi: 3.14,
     volume: function (radius, height){
         if(radius<0 || height < 0){
-            throw new Error('r or h < 0')
+            throw new Error('r or h < 0');
         }
+
         return radius*radius*height*miniMathLibExtended.pi;
     }
 }
