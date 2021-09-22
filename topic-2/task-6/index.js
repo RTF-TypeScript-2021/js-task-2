@@ -1,3 +1,5 @@
+const { miniMathLib } = require("../task-4");
+
 /**
  * Задача 6 - Третье измерение
  * Круги кругами, а интересно какой объем у цилиндра.
@@ -10,10 +12,18 @@
  * в которую передается значение Пи, необходимое для расчетов
  * */
 const miniMathLibExtended = {
+    pi: 3.14,
+    volume: function(radius, h) {
+        if(radius < 0) {
+            throw new Error();
+        }
+
+        return this.pi*radius**2*h;
+    }
 }
 
 function cylinderVolumeAccurate(pi){
-    
+    return miniMathLibExtended.volume.bind({pi:pi});
 }
 
 module.exports.miniMathLibExtended = miniMathLibExtended;
