@@ -14,7 +14,7 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-
+//jh
 }
 
 
