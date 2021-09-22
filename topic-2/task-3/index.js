@@ -16,7 +16,7 @@
  * @param {*} group 
  */
 function isGroup(group) {
-    if (!(group instanceof String)){
+    if (typeof(group) !== 'string' && !(group instanceof String)){
         return false;
     }
     const pairs = {'(': ')', '[': ']', '{': '}'};
