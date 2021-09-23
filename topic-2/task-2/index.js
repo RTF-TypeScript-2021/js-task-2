@@ -17,7 +17,7 @@ const arrayStripped = (array, size) => {
     if (!size || typeof size !== "number") {
         throw new Error();
     }
-    if (!Array.isArray(array)) {
+    if (!Array.isArray(array) || !array.length) {
         return [];
     }
     const res = [];
