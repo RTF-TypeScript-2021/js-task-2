@@ -10,5 +10,3 @@ function removeSmallest(numbers) {
 }
 
 module.exports.removeSmallest = removeSmallest;
-
-
