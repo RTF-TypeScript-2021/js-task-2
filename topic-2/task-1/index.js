@@ -1,15 +1,12 @@
-// Задача 1
-// Напишите функцию, удаляющую наименьший элемент в массиве. Не изменяйте исходный массив
-// Если есть несколько элементов с одинаковым значением, удалите один с меньшим индексом.
-// Если вы получили пустой массив, верните пустой массив.
-
 /**
- * 
- * @param {*} numbers массив
- * @returns массив с удаленным элементом
+ * @param {Array<Number>} numbers Initial array
+ * @returns Copy of initial array without first smallest num
  */
+
 function removeSmallest(numbers) {
-    
+    let copy = Array.from(numbers);
+    copy.splice(numbers.indexOf(Math.min.apply(null, numbers)), 1);
+    return copy;
 }
 
 module.exports.removeSmallest = removeSmallest;
