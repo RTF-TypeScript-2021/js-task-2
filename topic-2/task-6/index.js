@@ -10,10 +10,22 @@
  * в которую передается значение Пи, необходимое для расчетов
  * */
 const miniMathLibExtended = {
+    pi: 3.14,
+    volume: function(radius, height) {
+        if (typeof radius !== 'number' || typeof height !== 'number') {
+            return;
+        }
+
+        if (radius <= 0 || height <= 0) {
+            throw new Error('Radius and height must be bigger than zero');
+        }
+
+        return this.pi * radius ** 2 * height;
+    }
 }
 
 function cylinderVolumeAccurate(pi){
-    
+    return miniMathLibExtended.volume.bind({pi: pi});
 }
 
 module.exports.miniMathLibExtended = miniMathLibExtended;
