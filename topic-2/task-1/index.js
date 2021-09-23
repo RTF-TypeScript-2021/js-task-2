@@ -13,22 +13,17 @@ function removeSmallest(numbers) {
         throw new Error('Argument error. Argument numbers must be an array.');
     }
 
-    const firstItemType = typeof(numbers[0]);
-    const isCompared = item => {
-        return !isNaN(item) && item !== undefined && item !== null && typeof(item) === firstItemType;
-    };
-    if (numbers.some(item => !isCompared(item))){
-        throw new Error('Compare error. Impossible correctly find smallest element in the array.');
-    }
-
     let [index, minValue] = [0, numbers[0]];
-    numbers.forEach((item, i) => {
-        if (minValue > item){
-            [minValue, index] = [item, i];
+    numbers.forEach((number, i) => {
+        if (typeof(number) !== 'number' && !(number instanceof Number)){
+            throw new Error('Type error. All array elements must be numbers.');
+        }
+        if (minValue > number){
+            [minValue, index] = [number, i];
         }
     })
 
-    return numbers.slice(0, index).concat(numbers.slice(index + 1, numbers.length));
+    return numbers.filter((_, i) => i !== index);
 }
 
 module.exports.removeSmallest = removeSmallest;
