@@ -20,11 +20,7 @@ const miniMathLibExtended = {
     }
 }
 
-function cylinderVolumeAccurate(pi){
-    miniMathLibExtended.pi = pi;
-
-    return miniMathLibExtended.volume.bind(miniMathLibExtended);
-}
+const cylinderVolumeAccurate = (pi) => miniMathLibExtended.volume.bind({ pi });
 
 module.exports.miniMathLibExtended = miniMathLibExtended;
 module.exports.cylinderVolumeAccurate = cylinderVolumeAccurate;
