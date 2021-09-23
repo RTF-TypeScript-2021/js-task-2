@@ -8,9 +8,18 @@
 const miniMathLib = {
     pi: 3.14,
     circleArea: function(radius) {
-        
+        if (typeof radius !== 'number') {
+            return;
+        }
+
+        if (radius <= 0) {
+            throw new Error('Radius must be bigger than zero');
+        }
+
+        return this.pi * radius ** 2;
     }
 }
+
 
 
 module.exports.miniMathLib = miniMathLib
