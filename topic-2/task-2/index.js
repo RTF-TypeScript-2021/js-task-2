@@ -14,9 +14,6 @@
  * @returns массив разбитый на группы
  */
 const arrayStripped = (array, size) => {
-    if (array === null){
-        throw new Error('Argument error. Argument array must not be null.');
-    }
     if (!Number.isInteger(size) || size < 1){
         throw new Error('Argument error. Argument size must be an integer greater than 1.');
     }
