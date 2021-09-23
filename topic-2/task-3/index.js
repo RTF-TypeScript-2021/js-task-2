@@ -16,7 +16,20 @@
  * @param {*} group 
  */
 function isGroup(group) {
-
+    const brackets = {
+        '{' : '}',
+        '(' : ')',
+        '[' : ']'
+    }
+    for (let i = group.length -1 ; i > 0; i--) {
+        if (i == group.length / 2 - 1) {
+            break;
+        }
+        if(brackets[group[group.length - i - 1]] !== group[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 module.exports.isGroup = isGroup;
