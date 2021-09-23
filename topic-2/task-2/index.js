@@ -17,9 +17,10 @@ const arrayStripped = (array, size) => {
     if (!Number.isInteger(size) || size < 1){
         throw new Error('Argument error. Argument size must be an integer greater than 1.');
     }
-    if (!Array.isArray(array)){
+    if (!Array.isArray(array) || array.length === 0){
         return [];
     }
+
     let result = [];
     for (let start = 0; start < array.length; start+=size){
         result.push(array.slice(start, start + size));
