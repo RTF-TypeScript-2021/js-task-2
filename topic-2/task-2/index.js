@@ -1,21 +1,26 @@
+"use strict"
+
 /**
- * Задача 2
- * Допишите функцию, разбивающую массив на группы по размеру
- * Если массив не может быть разделен равномерно, последней частью
- * будут оставшиеся элементы. Порядок элементов внутри группы важен.
- * 
- * arrayStripped(['a', 'b', 'c', 'd'], 2)) => [['a', 'b'], ['c', 'd']]
- * arrayStripped([1, 'b', 5, 0, 'c'], 2)) => [[1, 'b'], [5, 0], ['c']]
- * 
- * Если разбивать на группы нечего, выведите пустой массив.
- * 
- * @param {*} array массив на вход
- * @param {*} size из скольких элементов состоит группа
- * @returns массив разбитый на группы
+ * @param {Array} array Initial array
+ * @param {Array} size Strip size
+ * @returns Groups array
 */
+
 const arrayStripped = (array, size) => {
+    if(array === null || typeof size !== 'number') {
+        throw new Error("Invalid params were caught");
+    }
+    if (array === undefined || !Array.isArray(array)) {
+        return [];
+    }
+    
+    let copy = Array.from(array);
+    let result = new Array;
+    for (let i = 0; i < array.length; i += size) {
+        result.push(copy.splice(0, size));
+    }
 
+    return result;
 }
-
 
 module.exports.arrayStripped = arrayStripped;

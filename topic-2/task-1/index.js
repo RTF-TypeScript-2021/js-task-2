@@ -1,3 +1,5 @@
+"use strict"
+
 /**
  * @param {Array<Number>} numbers Initial array
  * @returns Copy of initial array without first smallest num
