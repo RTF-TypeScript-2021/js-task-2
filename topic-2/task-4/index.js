@@ -8,7 +8,11 @@
 const miniMathLib = {
     pi: 3.14,
     circleArea: function(radius) {
-        
+        if (typeof radius !== 'number' || radius < 0) {
+            throw new Error(`Incorrect argument: radius = ${radius}, type = ${typeof radius}`);
+        }
+
+        return this.pi * radius * radius;
     }
 }
 

@@ -16,7 +16,31 @@
  * @param {*} group 
  */
 function isGroup(group) {
+    let brackets = {
+        open: [ '(', '[', '{' ],
+        close: {
+            ')': '(',
+            ']': '[',
+            '}': '{'
+        }
+    }
+    let stack = new Array();
+    for (let i = 0; i < group.length; i++) {
+        let current = group[i];
+        if (brackets.open.includes(current)){
+            stack.push(current);
+        }
+        if (current in brackets.close) {
+            if (stack.length === 0) {
+                return false;
+            }
+            if (brackets.close[current] === stack[stack.length - 1]) {
+                stack.pop();
+            }
+        }
+    }
 
+    return stack.length === 0;
 }
 
 module.exports.isGroup = isGroup;

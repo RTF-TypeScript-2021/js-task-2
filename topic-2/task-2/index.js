@@ -14,7 +14,22 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
+    if (array === undefined || typeof array === 'string') {
+        return new Array();
+    }
+    if (!Array.isArray(array)) {
+        throw new Error('Argument "Array" has incorrect type: ' + typeof array);
+    }
+    if (!Number.isInteger(size)){
+        throw new Error('Argument "size" has incorrect type: ' + typeof array);
+    }
+    let n = Math.floor(array.length, size);
+    let result = new Array();
+    for (let i = 0; i < n; i += size) {
+        result.push(array.slice(i, i + size));
+    }
 
+    return result;
 }
 
 
