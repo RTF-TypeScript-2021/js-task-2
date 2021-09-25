@@ -8,6 +8,14 @@ import {miniMathLib} from "../task-4";
  */
 function accurateAreaCalc() {
     
+    return (radius) => {
+        if (radius < 0 || !isFinite(radius)) {
+            throw new Error("Радиус некорректный")
+        }
+        let pi = Math.PI.toFixed(5);
+
+        return radius*radius*pi;
+    };
 }
 
 

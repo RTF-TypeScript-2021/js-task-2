@@ -9,7 +9,29 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
+    if (typeof(numbers) != 'object'){
+        throw new Error("numbers не массив")
+    }
     
+    for (let i = 0; i < numbers.length; i++) {
+        if(typeof(numbers[i]) != 'number') {
+            throw new Error("Массив некорректен");
+        }        
+    }
+    
+    let num = new Array();
+    numbers.forEach(element => {
+        num.push(element);
+    });
+    
+    if (num.length == 0) {
+        return [];
+    }
+
+    let min = Math.min(...num);
+    num.splice(num.indexOf(min), 1)
+
+    return num;
 }
 
 module.exports.removeSmallest = removeSmallest;

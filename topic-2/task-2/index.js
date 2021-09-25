@@ -13,9 +13,20 @@
  * @param {*} size из скольких элементов состоит группа
  * @returns массив разбитый на группы
 */
-const arrayStripped = (array, size) => {
+const arrayStripped = (array, size) => {   
+    if (!Number.isInteger(size)) {
+        throw new Error("Размер некорректный")
+    }
+    if (array == null || typeof(array) != 'object' || array.length == 0) {
+        return []
+    }
+    let subArray = new Array();
+    let iterations = Math.ceil(array.length / size);
+    for (let i = 0; i < iterations; i++) {
+        subArray.push(array.splice(0, size))       
+    }
 
+    return subArray;
 }
-
 
 module.exports.arrayStripped = arrayStripped;
