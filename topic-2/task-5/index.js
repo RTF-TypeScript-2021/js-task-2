@@ -8,6 +8,7 @@ import {miniMathLib} from "../task-4";
  */
 function accurateAreaCalc() {
     
+    return miniMathLib.circleArea.bind({'pi' : 3.14159 });
 }
 
 
