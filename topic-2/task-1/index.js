@@ -9,7 +9,21 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
-    
+    if (numbers.length == 0)
+    {
+        return [];
+    }
+    let minIndex = 0;
+    let minNumber = numbers[0];
+    for(let i = 0; i < numbers.length; i++)
+    {
+        if (numbers[i] < minNumber)
+        {
+            minNumber = numbers[i];
+            minIndex = i;
+        }
+    }
+    return numbers.filter((x, i) => i !== minIndex);
 }
 
 module.exports.removeSmallest = removeSmallest;

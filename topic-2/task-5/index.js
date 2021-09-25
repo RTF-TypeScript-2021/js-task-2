@@ -7,7 +7,8 @@ import {miniMathLib} from "../task-4";
  * Модифицировать miniMathLib из прошлой задачи - запрещено
  */
 function accurateAreaCalc() {
-    
+    let newData = miniMathLib.circleArea.bind({pi: 3.14159})
+    return newData;
 }
 
 

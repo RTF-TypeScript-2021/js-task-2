@@ -16,7 +16,25 @@
  * @param {*} group 
  */
 function isGroup(group) {
-
+    let staplesPairs = 
+    {
+        "{" : "}", 
+        "(" : ")", 
+        "[" : "]"
+    }
+    let result = [];
+    for(let i = 0; i < group.length; i++)
+    {
+        result.push(group[i])
+    }
+    for(let i = 0; i < result.length; i++)
+    {
+        if(staplesPairs[result.shift()] !== result.pop())
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 module.exports.isGroup = isGroup;
