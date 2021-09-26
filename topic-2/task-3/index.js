@@ -16,7 +16,51 @@
  * @param {*} group 
  */
 function isGroup(group) {
+    if (typeof group !== "string"){
+        throw Error;
+    }
 
+    let stack = [];
+    for (let e of group) {
+        switch (e) {
+
+        case '{':
+        case '[':
+        case '(':
+            stack.push(e);
+            break;
+
+        case ']':
+            if (stack.length === 0) {
+                return false;
+            }
+            if (stack.pop() !== '[') {
+                return false;
+            }
+            break;
+
+        case ')':
+            if (stack.length === 0) {
+                return false;
+            }
+            if (stack.pop() !== '(') {
+                return false;
+            }
+            break;
+        case '}':
+            if (stack.length === 0) {
+                return false;
+            }
+            if (stack.pop() !== '{') {
+                return false;
+            }
+            break;
+        default:
+            return false;
+        }
+    }
+
+    return stack.length === 0;
 }
 
 module.exports.isGroup = isGroup;
