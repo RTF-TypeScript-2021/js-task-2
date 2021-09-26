@@ -14,8 +14,21 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-
+    if ((isNaN(size)) || (size == null)) {
+        throw Error();
+    }
+    if ((!Array.isArray(array)) || (array == undefined) || (array.length == [])) {
+        return [];
+    }
+    return stripe(array, size);
 }
 
+function stripe(array, size){
+    let array2 = [];
+    while (array.length > 0){
+        array2.push(array.splice(0, size));
+    }
+    return array2;
+}
 
 module.exports.arrayStripped = arrayStripped;

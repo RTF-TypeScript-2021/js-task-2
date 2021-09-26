@@ -9,7 +9,30 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
-    
+    if (numbers != []){
+        return createArray(numbers);
+    }
+    else {
+        return numbers;
+    }
+}
+
+function createArray(numbers){
+    let array = [];
+    let count = 0;
+    let min = Math.min(...numbers);
+    for (let obj of numbers){
+        if ((obj != min)){
+            array.push(obj);
+        }
+        else if (count == 1){
+            array.push(obj);
+        }
+        else {
+            count += 1;
+        }
+    }
+    return array;
 }
 
 module.exports.removeSmallest = removeSmallest;

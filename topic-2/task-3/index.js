@@ -16,7 +16,19 @@
  * @param {*} group 
  */
 function isGroup(group) {
-
+    const symbols = { "(":")", "{":"}", "[":"]" };
+    if (group == ""){
+        return true;
+    }
+    if (group.length % 2 != 0){
+        return false;
+    } 
+    for(let i = 0; i < (group.length / 2); i++){
+        if (symbols[group[i]] != group[group.length - 1 - i]){
+            return false;
+        } 
+    }
+    return true;
 }
 
 module.exports.isGroup = isGroup;
