@@ -14,8 +14,30 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
+    if (array === null || !Number.isInteger(size)) {
+        throw new Error("The input data has wrong type")
+    } else if (array === undefined || array.length === 0 || typeof array === "string") {
+        return [];
+    } else {
+        let curSize = 0;
+        let curGroup = [];
+        let result = [];
 
+        for (let i = 0; i < array.length; i++) {
+            if (curSize === size) {
+                result.splice(-1, 0, ...result.splice(-1, 1, curGroup))
+                curGroup = [];
+                curSize = 0;
+            }
+
+            curSize++;
+            curGroup.push(array[i]);
+        }
+
+        result.splice(-1, 0, ...result.splice(-1, 1, curGroup));
+
+        return result;
+    }
 }
-
 
 module.exports.arrayStripped = arrayStripped;
