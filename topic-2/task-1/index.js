@@ -8,8 +8,16 @@
  * @param {*} numbers массив
  * @returns массив с удаленным элементом
  */
-function removeSmallest(numbers) {
-    
+
+ function removeSmallest(numbers) {
+    let lowest = numbers[0];
+    numbers.forEach(number => {
+        if (number < lowest) {
+            lowest = number;
+        }
+    });
+    let index = numbers.indexOf(lowest);
+    return numbers.filter((element, i) => i !== index);
 }
 
 module.exports.removeSmallest = removeSmallest;

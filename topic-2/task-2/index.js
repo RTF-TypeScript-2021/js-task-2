@@ -14,7 +14,27 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-
+    if (!Number.isInteger(size)) {
+        throw new Error();
+    }
+    if (!Array.isArray(array) || array.length === 0) {
+        return [];
+    }
+    let miniarray = [];
+    let arrays = [];
+    for (let i = 0; i < array.length; i++) {
+        miniarray.push(array[i]);
+        if (miniarray.length === size) {
+            arrays.push(miniarray);
+            miniarray = [];
+        }
+        if (i === array.length - 1) {
+            if (miniarray.length !== 0) {
+                arrays.push(miniarray);
+            }
+            return arrays;
+        }
+    }
 }
 
 
