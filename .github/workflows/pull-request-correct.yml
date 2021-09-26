@@ -13,6 +13,6 @@ jobs:
       - name: Pull Request Name Enforcement
         uses: dekinderfiets/pr-name-enforcer@0.0.1
         with:
-          repo-token: ${{GITHUB_TOKEN}}
+          repo-token: "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"
           regex: "/^[А-я ,.'-]+$/"
           error-message: "Наименование Pull-Request должно содержать {Фамилия Имя} и быть на русском языке"
