@@ -16,7 +16,29 @@
  * @param {*} group 
  */
 function isGroup(group) {
+    // expect(isGroup("([{}])")).toBe(true);
+    // expect(isGroup("[(])")).toBe(false);
+    // expect(isGroup("[({})](]")).toBe(false);
+    // expect(isGroup("([{}])")).toBe(true);
+    // expect(isGroup("(}")).toBe(false);
 
+    if (typeof(group) != 'string'){
+        throw new Error('Неправильно передана группа');
+    }
+    if (group.length == 0){
+        return true;
+    }
+    if (group[0] == ')' || group[0] == '}' || group[0] == ']'){
+        return false;
+    }
+
+    let index = 0;
+
+    for (let i = 0; i < group.length; i++){
+        if (group[i] == '('){
+            index = group.indexOf(')');
+        }
+    }
 }
 
 module.exports.isGroup = isGroup;
