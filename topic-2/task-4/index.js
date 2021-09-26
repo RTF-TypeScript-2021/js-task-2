@@ -5,12 +5,14 @@
  * !!! В функцию гарантированно передается число !!!
  * */
 
-const miniMathLib = {
+ const miniMathLib = {
     pi: 3.14,
     circleArea: function(radius) {
-        
+        if (radius <= 0) {
+            throw new Error('The radius is negative');
+        }
+        return radius * radius * this.pi;
     }
 }
-
 
 module.exports.miniMathLib = miniMathLib
