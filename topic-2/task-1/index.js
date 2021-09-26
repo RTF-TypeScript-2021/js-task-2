@@ -8,7 +8,7 @@
  * @param {*} numbers массив
  * @returns массив с удаленным элементом
  */
- function removeSmallest(numbers) {
+function removeSmallest(numbers) {
     if (numbers.length === 0){
         return numbers;
     }
