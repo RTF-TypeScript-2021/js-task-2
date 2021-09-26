@@ -8,7 +8,7 @@
 import {miniMathLib} from "../task-4/index.js";
 function accurateAreaCalc() {
     const tempP = {
-        p : (Math.PI).toFixed(5)
+        pi : (Math.PI).toFixed(5)
     }
 
     return miniMathLib.circleArea.bind(tempP);
