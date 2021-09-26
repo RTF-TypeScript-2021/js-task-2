@@ -15,8 +15,22 @@
  * 
  * @param {*} group 
  */
-function isGroup(group) {
-
-}
-
+ function isGroup(group) {
+    let resultArray = [];
+    const brackets = {
+        '{' : '}',
+        '(' : ')',
+        '[' : ']'
+    }
+    for (let i = 0; i < group.length; i++) {
+        resultArray.push(group[i])
+    }
+    for (let i = 0; i < resultArray.length; i++) {
+        if (brackets[resultArray.shift()] !== resultArray.pop()) {
+            return false;
+        }
+    }
+    return true;
+    }
+    
 module.exports.isGroup = isGroup;
