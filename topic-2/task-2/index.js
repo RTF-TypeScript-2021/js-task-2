@@ -14,8 +14,19 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-
+    if (typeof size !== typeof 1){
+        throw Error(`Ты что, хотел сломать мою программу 
+        неправильными входными данными? Не на ту напал.`);
+    }
+    if (!Array.isArray(array) || array.length === 0){
+        return [];
+    }
+    let resultArray = [];
+    for (let i = 0; i < array.length / size; i++){
+        resultArray[i] = array.slice(i * size, i * size + size);
+    }
+    
+    return resultArray;
 }
-
 
 module.exports.arrayStripped = arrayStripped;

@@ -8,8 +8,21 @@
  * @param {*} numbers массив
  * @returns массив с удаленным элементом
  */
-function removeSmallest(numbers) {
+ function removeSmallest(numbers) {
+    if (numbers.length === 0){
+        return numbers;
+    }
+    let minEl = Number.MAX_SAFE_INTEGER;
+    let minIndex = -1;
+    for (let i = 0; i < numbers.length; i++){
+        if (numbers[i] < minEl){
+            minEl = numbers[i];
+            minIndex = i;
+        }
+    }
+    numbers.splice(minIndex, 1);
     
+    return numbers;
 }
 
 module.exports.removeSmallest = removeSmallest;
