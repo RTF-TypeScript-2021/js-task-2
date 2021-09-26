@@ -6,8 +6,8 @@ const { miniMathLib } = require("../task-4");
  */
 
 const miniMathLibExtended = {
-    pi : Math.PI,
-    volume: (radius, height) => {
+    pi: Math.PI,
+    volume: function(radius, height) {
         if ((radius || height) < 0) {
             throw new Error("Radius and height cant be negative numbers")
         }
