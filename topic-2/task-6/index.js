@@ -1,20 +1,28 @@
+"use strict"
+const { miniMathLib } = require("../task-4");
+
 /**
- * Задача 6 - Третье измерение
- * Круги кругами, а интересно какой объем у цилиндра.
- * Только вот тут хотелось бы ещё и точность вычислений настроить.
- * Реализуйте логику константы miniMathLibExtended
- * Константа должна содержать функцию volume
- * Подсмотрите в задачу 4
- *
- * Реализуйте функцию, которая возвращает модифицированный volume из miniMathLibExtended
- * в которую передается значение Пи, необходимое для расчетов
- * */
+ * @returns Volume of cylinder
+ */
+
 const miniMathLibExtended = {
+    pi : Math.PI,
+    volume: (radius, height) => {
+        if ((radius || height) < 0) {
+            throw new Error("Radius and height cant be negative numbers")
+        }
+
+        return this.pi * height * (radius * radius);
+    }
 }
 
-function cylinderVolumeAccurate(pi){
-    
-}
+/**
+ * @param {Number} pi Custom pi constant
+ * @returns Volume of cylinder
+ */
+
+const cylinderVolumeAccurate = pi =>
+    miniMathLibExtended.volume.bind({pi : pi});
 
 module.exports.miniMathLibExtended = miniMathLibExtended;
 module.exports.cylinderVolumeAccurate = cylinderVolumeAccurate;

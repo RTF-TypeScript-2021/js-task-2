@@ -1,22 +1,26 @@
-/**
- * Задача 3
- * В этой задаче вам необходимо дописать функцию,
- * которая проверяет группу на корректность
- * Функция принимает на вход строку содержащую символы (), {} или []
- * Должна вернуть True, если строка пустая или группа корректна
- * Или False, если группа неправильная
- * Правильная строка не может закрыть группу в неправильном порядке,
- * открыть группу, но не закрыть ее, или закрыть группу до ее открытия. 
- * 
- * Примеры корректных групп:
- * ([{}]), (), [], {}, {()}
- * Примеры некорректных:
- * )(), {(}), ([], [])
- * 
- * @param {*} group 
- */
-function isGroup(group) {
+"use strict"
 
+/**
+ * @param {String} group Brackets group
+ * @returns Group valid positioning check result
+ */
+
+function isGroup(group) {
+    let borders = new Array;
+    const opening = new Set(['[', '{', '('])
+    const bracketPairs = {']' : '[', '}' : '{', ')' : '('}
+
+    for (let bracket of group) {
+        if (opening.has(bracket)){
+            borders.push(bracket)
+        } else if (borders[borders.length - 1] === bracketPairs[bracket]) {
+            borders.pop();
+        } else { 
+            return false;
+        }
+    };
+
+    return true;
 }
 
 module.exports.isGroup = isGroup;
