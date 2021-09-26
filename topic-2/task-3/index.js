@@ -16,7 +16,24 @@
  * @param {*} group 
  */
 function isGroup(group) {
+    let correct = 0;
+    const langKeys = {
+        '(':')',
+        '[':']',
+        '{':'}'
+    };
+    for(let i = 0; i < group.length/ 2; i++){
+        if(langKeys[group[i]] == group[group.length-i-1]){
+            correct = 1;
+        } else {
+            return false;
+        }
+    }
 
+    if(group.lenght == 0 || correct == 1){
+        return true;
+    }
 }
+
 
 module.exports.isGroup = isGroup;
