@@ -22,7 +22,7 @@ const miniMathLibExtended = {
 
 function cylinderVolumeAccurate(pi){
     return function(radius, height){
-        return pi * miniMathLibExtended.volume(radius, height) / miniMathLibExtended.pi;
+        return pi * miniMathLibExtended.volume(radius, height) / miniMathLib.pi;
     }
 }
 
