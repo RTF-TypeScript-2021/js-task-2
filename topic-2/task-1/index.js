@@ -9,7 +9,10 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
-    
+    let min = Math.min.apply(null, numbers);
+    numbers.splice(numbers.indexOf(min), 1);
+
+    return numbers;
 }
 
 module.exports.removeSmallest = removeSmallest;
