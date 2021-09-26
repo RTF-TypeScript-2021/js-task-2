@@ -15,7 +15,7 @@
 */
 const arrayStripped = (array, size) => {
     if (array === undefined || typeof array === 'string') {
-        return new Array();
+        return [];
     }
     if (!Array.isArray(array)) {
         throw new Error('Argument "Array" has incorrect type: ' + typeof array);
@@ -23,8 +23,8 @@ const arrayStripped = (array, size) => {
     if (!Number.isInteger(size)){
         throw new Error('Argument "size" has incorrect type: ' + typeof array);
     }
-    let n = Math.floor(array.length, size);
-    let result = new Array();
+    const n = Math.floor(array.length, size);
+    const result = [];
     for (let i = 0; i < n; i += size) {
         result.push(array.slice(i, i + size));
     }

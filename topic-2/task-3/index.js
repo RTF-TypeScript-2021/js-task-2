@@ -16,7 +16,7 @@
  * @param {*} group 
  */
 function isGroup(group) {
-    let brackets = {
+    const brackets = {
         open: [ '(', '[', '{' ],
         close: {
             ')': '(',
@@ -24,7 +24,7 @@ function isGroup(group) {
             '}': '{'
         }
     }
-    let stack = new Array();
+    const stack = [];
     for (let i = 0; i < group.length; i++) {
         let current = group[i];
         if (brackets.open.includes(current)){
