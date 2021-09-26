@@ -21,14 +21,19 @@ function isGroup(group) {
         '(' : ')',
         '[' : ']'
     }
-    for (let i = group.length -1 ; i > 0; i--) {
-        if (i == group.length / 2 - 1) {
-            break;
-        }
-        if(brackets[group[group.length - i - 1]] !== group[i]) {
+
+    const array = group.split(''); //до этого я просто обращался к элементам стринга, брал первое и последнее значение в [], сейчас просто реализовал через shift и pop
+
+    if (array.length % 2 === 1) {
+        return false;
+    }
+
+    while (array.length > 0) {
+        if (brackets[array.shift()] !== array.pop()) {
             return false;
         }
     }
+
     return true;
 }
 

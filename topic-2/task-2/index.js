@@ -14,22 +14,26 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-    if (isNaN(size) || size == null ) {
+    if (!Number.isInteger(size) || size === null ) { //до этого была проврка на NaN, теперь сделал через функцию  isInteger.
         throw Error();
     }
-    if (!Array.isArray(array) || array == undefined || array.length == 0) {
+
+    if (!Array.isArray(array) || !array.length) {
         return [];
     }
-    let groupArray = [];
+    
+    const groupArray = [];
     groupArray.push([]);
+
     let indexGroup = 0;
     for (let i = 0; i < array.length; i++) {
-        if (groupArray[indexGroup].length == size) {
+        if (groupArray[indexGroup].length === size) {
             indexGroup++;
             groupArray.push([]);
         }   
         groupArray[indexGroup].push(array[i])
     }
+
     return groupArray;
 }
 

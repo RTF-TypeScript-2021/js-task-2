@@ -9,27 +9,31 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
-    if (numbers.length == 0) {
-        return numbers;
+    if (!numbers.length || !Array.isArray(numbers)) { //поправил код-стайл и исправил проверку длины массива на 0.
+        return [];
     }
+
     let obj = {
         smallest : Infinity,
         index : 0
     }
+
     for (let i = 0; i < numbers.length; i++) {
         if (obj.smallest > numbers[i]) {
             obj.smallest = numbers[i]
             obj.index = i;
         }
     }
-    let changedNummbers = [];
+
+    const changedNumbers = [];
+
     for (let i = 0; i < numbers.length; i++) {
-        if (i != obj.index) {
-            changedNummbers.push(numbers[i]);
+        if (i !== obj.index) {
+            changedNumbers.push(numbers[i]);
         }
     }
-    return(changedNummbers);
 
+    return changedNumbers;
 }
 
 module.exports.removeSmallest = removeSmallest;

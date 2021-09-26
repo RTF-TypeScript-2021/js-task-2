@@ -11,7 +11,8 @@ const miniMathLib = {
         if (radius <= 0) {
             throw new Error()
         }
-        return this.pi*radius*radius;
+        
+        return this.pi * radius * radius;
     }
 }
 

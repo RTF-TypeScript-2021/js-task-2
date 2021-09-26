@@ -15,7 +15,8 @@ const miniMathLibExtended = {
         if (radius <= 0 || height <= 0) {
             throw new Error();
         }
-        return this.pi*height*radius*radius;
+        
+        return this.pi * height * radius * radius;
     }
 }
 
