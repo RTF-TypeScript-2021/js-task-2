@@ -14,8 +14,18 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-
-}
+    let resultArray= [];
+    if (size === null || typeof size !== 'number') {
+        throw new Error('Invalid input data');
+    }
+    if (!Array.isArray(array) || array === undefined || typeof array === 'string') {
+        return resultArray;
+    }
+    while (array.length > 0) {
+        resultArray.push(array.splice(0, size));
+    }
+    return resultArray;
+    }
 
 
 module.exports.arrayStripped = arrayStripped;
