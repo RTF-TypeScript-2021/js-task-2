@@ -22,7 +22,7 @@
         "[": "]",
     }
     if (typeof group !== "string") {
-        throw new Error('should be string');
+        throw new Error("must be string");
     }
     let sequence = [];
     for (let bracket of group) {

@@ -10,6 +10,9 @@
  */
 
  function removeSmallest(numbers) {
+    if (!Array.isArray(numbers)) {
+        throw new Error("must be array");
+    }
     numbers.forEach(number => {
         if (typeof number !== "number") {
             throw new Error("elements must be numbers");
