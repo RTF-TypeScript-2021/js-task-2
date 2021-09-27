@@ -11,6 +11,10 @@
  * */
 const miniMathLibExtended = {
     pi: 3.14,
+    /**
+     * @param {number} radius
+     * @param {number} height
+     */
     volume: function(radius, height) {
         if (typeof radius !== 'number' || typeof height !== 'number') {
             return;
