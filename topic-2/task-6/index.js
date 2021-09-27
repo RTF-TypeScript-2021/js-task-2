@@ -12,7 +12,7 @@
 const miniMathLibExtended = {
     pi: 3.14,
     volume: function (radius, height) {
-        if ((radius || height) <= 0) {
+        if (radius < 0 || height < 0) {
             throw new Error();
         }
 
