@@ -13,8 +13,19 @@
  * @param {*} size из скольких элементов состоит группа
  * @returns массив разбитый на группы
 */
-const arrayStripped = (array, size) => {
+const arrayStripped = (array, size) => {  
+    if(!Number.isInteger(size)){
+        throw new UserException("Invalid size");
+    }
+    if(!Array.isArray(array) || array === [] || size < 0){
+        return [];
+    }
+    const newArray =[];
+    for(let i = 0; i < array.length; i += size){
+        newArray.push(array.slice(i, i + size));
+    }
 
+    return newArray;
 }
 
 
