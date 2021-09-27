@@ -6,9 +6,10 @@ import {miniMathLib} from "../task-4";
  * Верните фукнкцию, которая использьзует число Пи с точностью до 5 знаков, после запятой.
  * Модифицировать miniMathLib из прошлой задачи - запрещено
  */
-function accurateAreaCalc() {
-    
+function accurateAreaCalc () {
+    return (radius) => {
+        return miniMathLib.circleArea(radius) / miniMathLib.pi * Math.PI.toFixed(5);
+    }
 }
-
 
 module.exports.accurateAreaCalc = accurateAreaCalc
