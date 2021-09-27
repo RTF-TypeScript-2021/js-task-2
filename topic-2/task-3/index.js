@@ -16,7 +16,19 @@
  * @param {*} group 
  */
 function isGroup(group) {
-
+    const staple = {
+        '(' : ')',
+        '[' : ']',
+        '{' : '}'
+    }
+    const array = group.split('');
+    while (array.length > 0) {
+        if (staple[array.shift()] !== array.pop()) {
+            return false;
+        }
+    }
+    
+    return true;
 }
 
 module.exports.isGroup = isGroup;
