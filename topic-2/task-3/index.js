@@ -16,7 +16,7 @@
  * @param {*} group 
  */
 function isGroup(group) {
-
+    
 }
 
 module.exports.isGroup = isGroup;
