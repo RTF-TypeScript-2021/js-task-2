@@ -17,6 +17,29 @@
  */
 function isGroup(group) {
 
+    let dict = {
+        ")":"(",
+        "]":"[",
+        "}":"{"
+    }
+
+    if (group.length % 2 !=0){
+        return false;
+    }
+    let res = [];
+    let resReverse=[];
+    for(let i = 0; i < group.length/2;i++){
+        res.push(group[i]);
+    }
+    for(let i = group.length/2; i < group.length;i++){
+        resReverse.push(dict[group[i]]);
+    }
+
+    if(resReverse.reverse().join()==res.join()){
+        return true;
+    }
+
+    return false;
 }
 
 module.exports.isGroup = isGroup;

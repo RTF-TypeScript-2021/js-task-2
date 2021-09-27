@@ -7,7 +7,13 @@ import {miniMathLib} from "../task-4";
  * Модифицировать miniMathLib из прошлой задачи - запрещено
  */
 function accurateAreaCalc() {
-    
+    return (radius)=>{
+        if (radius<0){
+            throw Error(`Радиус ${radius} меньше 0`);
+        }
+
+        return Math.PI.toFixed(5) * radius * radius;
+    }
 }
 
 
