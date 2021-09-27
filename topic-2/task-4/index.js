@@ -11,8 +11,8 @@ const miniMathLib = {
         if (radius < 0){
             throw new UserException('Invalid number');
         } else {
-            
-            return miniMathLib.pi*radius*radius;
+
+            return this.pi*radius*radius;
         }
     }
 }
