@@ -9,6 +9,10 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
+    if (!numbers.isArray()){
+        throw "В функцию передан не массив"
+    }
+
     let smallest = Infinity;
     let smallestIndex = -1
     for (let el = 0; el < numbers.length; el++){
