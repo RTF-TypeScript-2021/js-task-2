@@ -12,7 +12,7 @@
 const miniMathLibExtended = {
     pi: 3.14,
     volume: function (radius, height) {
-        if ((radius || height) < 0) {
+        if ((radius || height) <= 0) {
             throw new Error();
         }
 
@@ -21,7 +21,9 @@ const miniMathLibExtended = {
 }
 
 function cylinderVolumeAccurate(pi){
-    return miniMathLibExtended.volume.bind({'pi' : 'pi'});
+    miniMathLibExtended.pi = pi;
+
+    return miniMathLibExtended.volume.bind(miniMathLibExtended);
 }
 
 module.exports.miniMathLibExtended = miniMathLibExtended;

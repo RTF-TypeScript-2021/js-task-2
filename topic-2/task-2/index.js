@@ -14,11 +14,11 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-    if (array === undefined) {
-        return [];
-    }
     if(typeof size !== 'number') {
         throw new Error(); 
+    }    
+    if (typeof array !== "object") {
+        return [];
     }
     let res = [];
     for (let i = 0; i < array.length; i += size) {
