@@ -9,11 +9,22 @@
  * Реализуйте функцию, которая возвращает модифицированный volume из miniMathLibExtended
  * в которую передается значение Пи, необходимое для расчетов
  * */
+import {miniMathLib} from "../task-4";
+
 const miniMathLibExtended = {
+    volume: function(radius, height) {
+        if (radius < 0 && height < 0) {
+            throw new Error('Радиус или высота меньше 0')
+        }
+        
+        return miniMathLib.circleArea(radius) * height;
+    }
 }
 
-function cylinderVolumeAccurate(pi){
-    
+function cylinderVolumeAccurate(pi) {
+    return function(radius, height) {
+        return pi * miniMathLibExtended.volume(radius, height) / miniMathLib.pi;
+    }
 }
 
 module.exports.miniMathLibExtended = miniMathLibExtended;
