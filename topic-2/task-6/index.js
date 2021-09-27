@@ -13,8 +13,8 @@ const { miniMathLib } = require("../task-4");
  * */
 const miniMathLibExtended = {
     volume: function(radius, height) {
-        if (height < 0 || radius < 0){
-            throw Error('Опять за своими минусами, просила же...');
+        if (typeof height !== 'number' || typeof radius !== 'number' || height < 0 || radius < 0){
+            throw Error('Опять со своими минусами и неприятными типами, просила же...');
         }
 
         return height * miniMathLib.circleArea(radius);

@@ -10,7 +10,7 @@ function accurateAreaCalc() {
     return function(radius) {
         const coolerPi = 3.14159;
 
-        return miniMathLib.circleArea(radius) / miniMathLib.pi * coolerPi; 
+        return coolerPi * radius ** 2; 
     }
 }
 

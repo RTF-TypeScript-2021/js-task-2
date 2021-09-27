@@ -20,9 +20,10 @@ function removeSmallest(numbers) {
             minIndex = i;
         }
     }
-    numbers.splice(minIndex, 1);
+    let resultArray = numbers.slice();
+    resultArray.splice(minIndex, 1);
     
-    return numbers;
+    return resultArray;
 }
 
 module.exports.removeSmallest = removeSmallest;
