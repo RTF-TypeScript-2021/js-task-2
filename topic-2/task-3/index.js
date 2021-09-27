@@ -16,29 +16,34 @@
  * @param {*} group 
  */
 function isGroup(group) {
-    // expect(isGroup("([{}])")).toBe(true);
-    // expect(isGroup("[(])")).toBe(false);
-    // expect(isGroup("[({})](]")).toBe(false);
-    // expect(isGroup("([{}])")).toBe(true);
-    // expect(isGroup("(}")).toBe(false);
+    if (typeof(group) != 'string'){
+        throw new Error('Неправильно передана группа');
+    }
+    if (group.length == 0){
+        return true;
+    }
+    if (group[0] == ')' || group[0] == '}' || group[0] == ']' || group.length % 2 != 0){
+        return false;
+    }
 
-    // if (typeof(group) != 'string'){
-    //     throw new Error('Неправильно передана группа');
-    // }
-    // if (group.length == 0){
-    //     return true;
-    // }
-    // if (group[0] == ')' || group[0] == '}' || group[0] == ']'){
-    //     return false;
-    // }
+    const brackets = {
+        "(" : ")",
+        "{" : "}",
+        "[" : "]",
+    }
+    let currentGroup = [];
 
-    // let index = 0;
+    for (let i = 0; i < group.length; i++){
+        if (group[i] in brackets){
+            currentGroup.push(group[i]);
+        } else if(brackets[currentGroup.pop()] !== group[i]){
+            return false;
+        }
+    }
 
-    // for (let i = 0; i < group.length; i++){
-    //     if (group[i] == '('){
-    //         index = group.indexOf(')');
-    //     }
-    // }
+    return true;
+
+    // ( = 40 ; ) = 41 ; [ = 91 ; ] = 93 ; { = 123 ; } = 125 || charCodeAt() 
 }
 
 module.exports.isGroup = isGroup;
