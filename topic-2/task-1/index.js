@@ -9,7 +9,7 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
-    if (!numbers.isArray()){
+    if (!Array.isArray(numbers)){
         throw "В функцию передан не массив"
     }
 
