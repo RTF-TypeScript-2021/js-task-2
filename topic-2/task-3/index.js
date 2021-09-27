@@ -16,20 +16,17 @@
  * @param {*} group 
  */
 function isGroup(group) {
-    if (typeof(group) != 'string') {
+    if (typeof(group) !== 'string') {
         throw new Error("Неверная строка");
     }
     
-    let dict = new Map();
+    const dict = new Map();
     createDictionary(dict);
     if (!countSymbolsInDict(dict, group)) {
         return false;
     }
-
-    if (typeof(group) != 'string') {
-        throw new Error("Неверная строка");
-    }   
-    let stack = [];
+   
+    const stack = [];
 
     for(let char of group) {
         switch(char) {
@@ -43,17 +40,17 @@ function isGroup(group) {
             stack.push(char);
             break;
         case '}': 
-            if (stack.pop() != '{') {
+            if (stack.pop() !== '{') {
                 return false;
             }
             break;
         case ']': 
-            if (stack.pop() != '[') {
+            if (stack.pop() !== '[') {
                 return false;
             }
             break;
         case ')': 
-            if (stack.pop() != '(') {
+            if (stack.pop() !== '(') {
                 return false;
             }
             break;
@@ -73,7 +70,7 @@ function createDictionary(dict) {
 
 function countSymbolsInDict(dict, string) {
     for (let element of dict.keys()) {
-        if(countSymbols(element, string) != countSymbols(dict.get(element), string)) {
+        if(countSymbols(element, string) !== countSymbols(dict.get(element), string)) {
             return false;
         }
     };
@@ -84,7 +81,7 @@ function countSymbolsInDict(dict, string) {
 function countSymbols(symbol, string) {
     let counter = 0;
     for (let i = 0; i < string.length; i++) {
-        if (string[i] == symbol) {
+        if (string[i] === symbol) {
             counter++;
         }       
     }

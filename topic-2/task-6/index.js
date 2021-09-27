@@ -15,21 +15,14 @@ const miniMathLibExtended = {
         if (radius < 0 || height < 0 || !isFinite(radius) || !isFinite(height)) {
             throw new Error("Параметры некорректны")
         }
-
+        
         return radius*radius*this.pi*height;
     }
 
 }
 
 function cylinderVolumeAccurate(pi){
-    return (radius, height) => {
-        if (radius < 0 || height < 0 || !isFinite(radius) || !isFinite(height)) {
-            throw new Error("Параметры некорректны")
-        }
-        
-        return radius*radius*pi*height;
-    }
+    return miniMathLibExtended.volume.bind({pi: pi});
 }
-
 module.exports.miniMathLibExtended = miniMathLibExtended;
 module.exports.cylinderVolumeAccurate = cylinderVolumeAccurate;
