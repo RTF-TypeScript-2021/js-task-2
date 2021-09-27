@@ -14,7 +14,7 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-    if ((isNaN(size)) || (size == null)) {
+    if ((isNaN(size)) || (size == null) || (size == 0)) { //Исправил условие, теперь если ввести size = 0 выдаст ошибку
         throw Error();
     }
     if ((!Array.isArray(array)) || (array == undefined) || (array.length == [])) {

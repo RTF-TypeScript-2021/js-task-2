@@ -17,6 +17,9 @@
  */
 function isGroup(group) {
     const symbols = { "(":")", "{":"}", "[":"]" };
+    if (typeof group != "string"){ //Добавил условие теперь, если на вход подается не строка, выводим false
+        return false;
+    }
     if (group == ""){
         return true;
     }

@@ -9,7 +9,7 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
-    if (numbers != []){
+    if ((numbers != []) && (typeof numbers[0] == "number")){ // Исправил условие, теперь также мы проверям является ли массив массивом чисел
         return createArray(numbers);
     }
     else {
