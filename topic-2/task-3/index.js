@@ -15,8 +15,23 @@
  * 
  * @param {*} group 
  */
-function isGroup(group) {
+function isGroup (group) {
+    if (group === null) {
+        throw new Error("Group can't be null");
+    }
 
+    const bracketPairs = {'[': ']', '{': '}', '(': ')'};
+    const brackets = [];
+
+    for (let i of group) {
+        if (i in bracketPairs) {
+            brackets.push(i);
+        } else if (bracketPairs[brackets.pop()] !== i) {
+            return false;
+        }
+    }
+
+    return !brackets.length;
 }
 
 module.exports.isGroup = isGroup;
