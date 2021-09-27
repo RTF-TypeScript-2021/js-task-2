@@ -14,8 +14,25 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
+    let arrayForReturn = [];
+    let arrayBuffer =[];
+    let counter = 0;
 
+    for (let i = 0; i < array.length; i++) {
+        arrayBuffer.push(array[i])
+        counter++;
+        if (counter == size) {
+            arrayForReturn.push(arrayBuffer);
+            arrayBuffer = [];
+            counter = 0;
+        }
+    }
+
+    if (arrayBuffer != []) {
+        arrayForReturn.push(arrayBuffer);
+    }
+
+    return arrayForReturn;
 }
-
 
 module.exports.arrayStripped = arrayStripped;
