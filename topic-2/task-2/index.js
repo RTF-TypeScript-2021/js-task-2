@@ -14,7 +14,22 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
+    if (array === null || typeof size !== 'number') {
+        throw new Error("Invalid parameters");
+    }
 
+    if (!Array.isArray(array) || array === undefined) {
+        return [];
+    }
+
+    const copyArray = [...array];
+    const resultArray = [];
+
+    for (let i = 0; i < array.length; i+=size) {
+        resultArray.push(copyArray.splice(0, size));
+    }
+
+    return resultArray;
 }
 
 
