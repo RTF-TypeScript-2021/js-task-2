@@ -21,6 +21,9 @@
         "{": "}",
         "[": "]",
     }
+    if (typeof group !== "string") {
+        throw new Error('should be string');
+    }
     let sequence = [];
     for (let bracket of group) {
         if (bracket in pairs) {

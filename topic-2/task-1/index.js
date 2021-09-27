@@ -10,6 +10,11 @@
  */
 
  function removeSmallest(numbers) {
+    numbers.forEach(number => {
+        if (typeof number !== "number") {
+            throw new Error("elements must be numbers");
+        }
+    });
     let lowest = numbers[0];
     numbers.forEach(number => {
         if (number < lowest) {
