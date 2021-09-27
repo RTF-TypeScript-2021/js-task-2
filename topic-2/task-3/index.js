@@ -16,7 +16,28 @@
  * @param {*} group 
  */
 function isGroup(group) {
+    const endings = {
+        "{" : "}",
+        "[" : "]",
+        "(" : ")"
+    }
+    if (group.length == 0) {
+        return true;
+    } else if (typeof(group) !== "string") {
+        throw new Error ("Input must be a string");
+    } else if (group[0] == ")" || group[0] == "}" || group[0] == "]" || group.length % 2 != 0) {
+        return false
+    }
+    const tempGroup = [];
+    for (let i = 0; i < group.length; i++) {
+        if (group[i] in endings) {
+            tempGroup.push(group[i]);
+        } else if (endings[tempGroup.pop()] !== group[i]) {
+            return false;
+        }
+    }
 
+    return true;
 }
 
 module.exports.isGroup = isGroup;
