@@ -21,9 +21,8 @@ const miniMathLibExtended = {
 }
 
 function cylinderVolumeAccurate(pi){
-    miniMathLibExtended.pi = pi;
 
-    return miniMathLibExtended.volume.bind(miniMathLibExtended);
+    return miniMathLibExtended.volume.bind({'pi' : pi});
 }
 
 module.exports.miniMathLibExtended = miniMathLibExtended;

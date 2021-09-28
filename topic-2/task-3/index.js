@@ -22,6 +22,9 @@ function isGroup(group) {
         '{' : '}'
     }
     const array = group.split('');
+    if (array.length % 2 !== 0) {
+        return false;
+    }
     while (array.length > 0) {
         if (staple[array.shift()] !== array.pop()) {
             return false;
