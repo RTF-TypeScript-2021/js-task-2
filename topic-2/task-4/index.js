@@ -8,10 +8,10 @@
 const miniMathLib = {
     pi: 3.14,
     circleArea: function(radius) {
-        if(radius<=0){
-         throw new Error('Radius zero or negative');
+        if(radius<=0 || typeof radius !== 'number'){
+         throw new Error('s radiusom chet ne to');
         }
-        return this.pi*radius*radius;
+        return this.pi*radius**2;
     }
 }
 
