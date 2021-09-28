@@ -12,10 +12,10 @@
 const miniMathLibExtended = {
     pi : 3.14 ,
     volume: function(radius, height) {
-        if (radius <= 0 || height <= 0){
-            throw new Error('Zero or negative');
+        if (radius <= 0 || height <= 0  || typeof radius !== 'number' || typeof height !== 'number'){
+            throw new Error('chet ne to');
         }
-        return this.pi * radius * radius * height;
+        return this.pi *  height * radius **2 ;
     }
 }
 
