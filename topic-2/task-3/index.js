@@ -16,7 +16,21 @@
  * @param {*} group 
  */
 function isGroup(group) {
+    if (group.length===0) {
+        return true;
+    }
+    let stack = []
+    let pair = ["[","]","{","}","(",")"]
+    for (let i=0; i<group.length/2; i++) {
+        stack.push(group[i]);
+    }
+    for (let i=group.length / 2; i < group.length; i++) {
+        if (stack.pop()!==pair[pair.indexOf(group[i])-1] || pair.indexOf(group[i]) === 0) {
+            return false;
+        }
+    }
 
+    return true;
 }
 
 module.exports.isGroup = isGroup;

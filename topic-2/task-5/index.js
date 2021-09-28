@@ -7,7 +7,9 @@ import {miniMathLib} from "../task-4";
  * Модифицировать miniMathLib из прошлой задачи - запрещено
  */
 function accurateAreaCalc() {
-    
+    return function(radius) {
+        return Math.PI * miniMathLib.circleArea(radius)/miniMathLib.pi;
+    }
 }
 
 
