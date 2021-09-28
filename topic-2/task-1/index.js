@@ -10,17 +10,10 @@
  */
 function removeSmallest(numbers) {
     if (numbers.length === 0) {
-        return new Array();
+        return [];
     }
-    let minNumber = Infinity;
-    let minIndex = -1;
-    for (let i=0; i<numbers.length; i++){
-        if (numbers[i]<minNumber){
-            minIndex=i;
-            minNumber=numbers[i];
-        }
-    }
-    numbers.splice(minIndex, 1);
+    let min = Math.min.apply(null, numbers);
+    numbers.splice(numbers.indexOf(min), 1);
 
     return numbers;
 }
