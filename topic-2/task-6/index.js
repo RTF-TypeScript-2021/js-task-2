@@ -18,14 +18,12 @@ const miniMathLibExtended = {
             throw new Error('Неправильно переданы радиус или высота');
         }
 
-        return miniMathLibExtended.pi * radius * radius * height;
+        return this.pi * radius * radius * height;
     }
 }
 
 function cylinderVolumeAccurate(pi){
-    miniMathLibExtended.pi = pi;
-
-    return miniMathLibExtended.volume;
+    return miniMathLibExtended.volume.bind({'pi' : pi});
 }
 
 module.exports.miniMathLibExtended = miniMathLibExtended;
