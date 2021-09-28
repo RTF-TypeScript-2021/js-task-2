@@ -9,7 +9,7 @@ const miniMathLib = {
     pi: 3.14,
     circleArea: function(radius) {
         if (typeof radius !== 'number') {
-            return;
+            throw new Error('Radius must be a number');
         }
 
         if (radius <= 0) {
