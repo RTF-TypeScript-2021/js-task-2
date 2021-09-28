@@ -16,7 +16,22 @@
  * @param {*} group 
  */
 function isGroup(group) {
+    let stack = [];
+    for (let i = 0; i < group.length; i++) {
+        if (group[i] === "]" && stack[stack.length - 1] === "[" ||
+            group[i] === ")" && stack[stack.length - 1] === "(" ||
+            group[i] === "}" && stack[stack.length - 1] === "{") {
+            stack.pop();
+        } else if (group[i] === "]" || group[i] === ")" || group[i] === "}" ) {
+            return false;
+        }
 
+        if (group[i] === "[" || group[i] === "(" || group[i] === "{") {
+            stack.push(group[i]);
+        }
+    }
+
+    return stack.length === 0;
 }
 
 module.exports.isGroup = isGroup;
