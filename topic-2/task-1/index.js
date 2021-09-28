@@ -9,7 +9,13 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
-    if ((numbers != []) && (typeof numbers[0] == "number")){ // Исправил условие, теперь также мы проверям является ли массив массивом чисел
+    //Теперь точно не пустит массив состоящий не из чисел!
+    for (let obj of numbers){
+        if (typeof obj != "number"){
+            throw Error("Массив должен состоять из чисел!")
+        }
+    }
+    if (numbers != []){
         return createArray(numbers);
     }
     else {
