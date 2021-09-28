@@ -14,21 +14,29 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
+    if (array === null || size == null || !Number.isInteger(size)) {
+        throw "Method gets incorrect data";
+    }
+
+    if (array === undefined || !Array.isArray(array)) {
+        return [];
+    }
+
     let arrayForReturn = [];
-    let arrayBuffer =[];
+    let arrayBuffer = [];
     let counter = 0;
 
     for (let i = 0; i < array.length; i++) {
-        arrayBuffer.push(array[i])
+        arrayBuffer.push(array[i]);
         counter++;
-        if (counter == size) {
+        if (counter === size) {
+            counter = 0;
             arrayForReturn.push(arrayBuffer);
             arrayBuffer = [];
-            counter = 0;
         }
     }
 
-    if (arrayBuffer != []) {
+    if (arrayBuffer.length != []) {
         arrayForReturn.push(arrayBuffer);
     }
 
