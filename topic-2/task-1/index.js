@@ -9,28 +9,13 @@
  * @returns массив с удаленным элементом
  */
  function removeSmallest(numbers) {
+    let newArray = numbers.filter(item => typeof item === 'number');
     let resultArray = [];
-    if (!Array.isArray(numbers)) {
-        throw new Error('Invalid array');
-    }
-    let minIndex = 0;
-    let minElement = numbers[minIndex];
-    for (let i = 0; i < numbers.length - 1; i++) {
-        if (typeof numbers[i] === 'number') {
-            if (numbers[i] < minElement) {
-                minElement = numbers[i];
-                minIndex = i;
-            }
-        }
-        else {
-            throw new Error ('Array is not an array of numbers')
-        }
-    };
-    if (numbers.length === 0) {
-        return resultArray;
-    }
-    return numbers.filter((arr, index) => index !== minIndex);
-    }
+    const minElement = Math.min(...newArray);
+    const minIndex = numbers.indexOf(minElement);
+    resultArray = numbers.slice(0, minIndex).concat(numbers.slice(minIndex+1));
+    return resultArray;
+ }
 
 module.exports.removeSmallest = removeSmallest;
 
