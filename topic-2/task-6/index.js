@@ -17,7 +17,7 @@ const miniMathLibExtended = {
      */
     volume: function(radius, height) {
         if (typeof radius !== 'number' || typeof height !== 'number') {
-            return;
+            throw new Error('Radius and height must be a numbers');
         }
 
         if (radius <= 0 || height <= 0) {
