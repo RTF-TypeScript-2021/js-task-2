@@ -17,7 +17,7 @@
  */
 function isGroup(group) {
     if (typeof group !== "string"){
-        throw Error;
+        throw new Error();
     }
 
     let stack = [];
