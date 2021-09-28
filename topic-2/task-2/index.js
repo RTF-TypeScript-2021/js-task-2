@@ -14,7 +14,7 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-    if (typeof (size) !== "number" || size <= 0) {
+    if (typeof (size) !== "number" || size <= 0 || !Number.isInteger(size)) {
         throw new Error();
     }
 

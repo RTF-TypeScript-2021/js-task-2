@@ -17,7 +17,7 @@ function removeSmallest(numbers) {
         return numbers;
     }
 
-    let indexMinItem = numbers.indexOf(Math.min.apply(null, numbers));
+    let indexMinItem = numbers.indexOf(Math.min(...numbers));
 
     return  numbers.slice(0, indexMinItem).concat(numbers.slice(indexMinItem + 1, numbers.length));
 }
