@@ -21,12 +21,12 @@ const arrayStripped = (array, size) => {
     } else if (array === undefined || typeof(array) !== "object") {
         return result;
     } else {
-        const result1 = [];
+        const tempArray = [];
         while (array.length) {
-            result1.push(array.splice(0, size));
+            tempArray.push(array.splice(0, size));
         }
 
-        return result1;
+        return tempArray;
     }
 }
 

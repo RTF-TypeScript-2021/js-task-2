@@ -27,6 +27,9 @@ function isGroup(group) {
         throw new Error ("Input must be a string");
     } else if (group[0] == ")" || group[0] == "}" || group[0] == "]" || group.length % 2 != 0) {
         return false
+    } else if (group[group.length - 1] == group [0]) {
+    
+        return false
     }
     const tempGroup = [];
     for (let i = 0; i < group.length; i++) {
