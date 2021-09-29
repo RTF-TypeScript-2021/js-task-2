@@ -14,7 +14,7 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-    if (array === null || !Number.isInteger(size)) {
+    if (array === null || !Number.isInteger(size) || size < 0) {
         throw new Error("The input data has wrong type")
     } else if (array === undefined || array.length === 0 || typeof array === "string") {
         return [];
