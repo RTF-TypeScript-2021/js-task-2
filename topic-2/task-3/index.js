@@ -16,7 +16,30 @@
  * @param {*} group 
  */
 function isGroup(group) {
+    const checkingArray = [];
 
+    for (let i = 0; i < group.length; i++) {
+
+        const checkingArrayLastElement = checkingArray[checkingArray.length - 1];
+
+        if (
+            group[i] === '(' ||
+            group[i] === '{' ||
+            group[i] === '['
+        ) {
+            checkingArray.push(group[i]);
+        } else if (
+            (checkingArrayLastElement === '(' && group[i] === ')') ||
+            (checkingArrayLastElement === '{' && group[i] === '}') ||
+            (checkingArrayLastElement === '[' && group[i] === ']')
+        ) {
+            checkingArray.pop();
+        } else {
+            return false;
+        }
+    }
+
+    return checkingArray.length ? false : true;
 }
 
 module.exports.isGroup = isGroup;
