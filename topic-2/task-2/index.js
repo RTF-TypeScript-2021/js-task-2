@@ -25,7 +25,8 @@ const arrayStripped = (array, size) => {
 
         for (let i = 0; i < array.length; i++) {
             if (curSize === size) {
-                result.splice(-1, 0, ...result.splice(-1, 1, curGroup))
+                //result.splice(-1, 0, ...result.splice(-1, 1, curGroup))
+                result.push(curGroup);
                 curGroup = [];
                 curSize = 0;
             }
@@ -34,9 +35,9 @@ const arrayStripped = (array, size) => {
             curGroup.push(array[i]);
         }
 
-        result.splice(-1, 0, ...result.splice(-1, 1, curGroup));
+        //result.splice(-1, 0, ...result.splice(-1, 1, curGroup));
 
-        return result;
+        return result.push(curGroup);
     }
 }
 

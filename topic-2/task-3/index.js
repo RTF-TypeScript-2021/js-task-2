@@ -16,39 +16,24 @@
  * @param {*} group 
  */
 function isGroup(group) {
-    let bracketFlag = -1;
-    let squareBracketFlag = -1;
-    let curlyBracketFlag = -1;
+    const pairBrackets = {
+        "(": ")",
+        "[": "]",
+        "{": "}"
+    };
 
+    let stack = [];
     for (let i = 0; i < group.length; i++) {
-        if (group[i] === "(") {
-            bracketFlag = i;
-        } else if (group[i] === "[") {
-            squareBracketFlag = i;
-        } else if (group[i] === "{") {
-            curlyBracketFlag = i;
-        } else if (group[i] === ")") {
-            if (bracketFlag > squareBracketFlag && bracketFlag > curlyBracketFlag) {
-                bracketFlag = -1;
-            } else {
+        if (group[i] === ")" || group[i] === "]" || group[i] === "}") {
+            if (pairBrackets[stack.pop()] !== group[i]) {
                 return false;
             }
-        } else if (group[i] === "]") {
-            if (squareBracketFlag > bracketFlag && squareBracketFlag > curlyBracketFlag) {
-                squareBracketFlag = -1;
-            } else {
-                return false;
-            }
-        } else if (group[i] === "}") {
-            if (curlyBracketFlag > squareBracketFlag && curlyBracketFlag > bracketFlag) {
-                curlyBracketFlag = -1;
-            } else {
-                return false;
-            }
+        } else {
+            stack.push(group[i]);
         }
     }
 
-    return true;
+    return stack.length === 0;
 }
 
 module.exports.isGroup = isGroup;
