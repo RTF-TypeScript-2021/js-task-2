@@ -22,7 +22,7 @@ function removeSmallest(numbers) {
         }
     }
 
-    let array1 = [];
+    const array1 = [];
     for (let i = 0; i <= numbers.length - 1; i++) {
         if (i != indexMin) {
             array1.push(numbers[i]);
@@ -33,5 +33,3 @@ function removeSmallest(numbers) {
 }
 
 module.exports.removeSmallest = removeSmallest;
-
-
