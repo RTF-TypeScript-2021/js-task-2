@@ -15,14 +15,14 @@
 */
 const arrayStripped = (array, size) => {
     if (array === null || size == null || !Number.isInteger(size)) {
-        throw "Method gets incorrect data";
+        throw new Error("Method gets incorrect data");
     }
 
     if (array === undefined || !Array.isArray(array)) {
         return [];
     }
 
-    let arrayForReturn = [];
+    const arrayForReturn = [];
     let arrayBuffer = [];
     let counter = 0;
 
