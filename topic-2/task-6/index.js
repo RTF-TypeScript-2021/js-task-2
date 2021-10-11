@@ -1,3 +1,4 @@
+
 /**
  * Задача 6 - Третье измерение
  * Круги кругами, а интересно какой объем у цилиндра.
@@ -16,16 +17,18 @@ const miniMathLibExtended = {
         if (radius < 0 && height < 0) {
             throw new Error('Радиус или высота меньше 0')
         }
-        
+         
         return miniMathLib.circleArea(radius) * height;
     }
 }
-
+ 
 function cylinderVolumeAccurate(pi) {
-    return function(radius, height) {
+    const func = function(radius, height) {
         return pi * miniMathLibExtended.volume(radius, height) / miniMathLib.pi;
     }
-}
 
+    return func.bind(miniMathLib);
+}
+ 
 module.exports.miniMathLibExtended = miniMathLibExtended;
 module.exports.cylinderVolumeAccurate = cylinderVolumeAccurate;
