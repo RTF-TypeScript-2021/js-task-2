@@ -16,7 +16,7 @@
  * @param {*} group 
  */
 function isGroup(group) {
-    let stack = [];
+    const stack = [];
     for (let i = 0; i < group.length; i++) {
         if (group[i] === "]" && stack[stack.length - 1] === "[" ||
             group[i] === ")" && stack[stack.length - 1] === "(" ||
