@@ -10,10 +10,10 @@
  */
 function removeSmallest(numbers) {
     if (Array.isArray(numbers)) {
-        arr = numbers //Исходя из условий задачи, что исходный массив нельзя изменять
+        let arr = numbers //Исходя из условий задачи, что исходный массив нельзя изменять
         if (arr.every(elem => typeof elem === 'number')) {
             let a = +Infinity
-            for (i = 0; i < arr.length; i++) {
+            for (let i = 0; i < arr.length; i++) {
                 if (a > arr[i]) {
                     a = arr[i]
                 }

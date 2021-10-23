@@ -19,7 +19,7 @@ const arrayStripped = (array, size) => {
         let arr = []
         for (i = 0; i < a; i++) {
             let arr_1 = []
-            for (b = 0; b < size; b++) {
+            for (let b = 0; b < size; b++) {
                 if (array.length === 0) {
                     break
                 }

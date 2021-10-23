@@ -25,7 +25,7 @@ function isGroup(group) {
         let b = arr.length
         let d = Array.from(new Set(arr)).toString()
         if (arr.every(elem => elem === '(' || ')' || '[' || ']' || '{' || '}') && b % 2 == 0 && d === a && arr[0] != ')' && arr[0] != ']' && arr[0] != '}') {
-            for (i = 0; i < b; i++) {
+            for (let i = 0; i < b; i++) {
                 if (group[i] === '(') {
                     if (group[b - 1 - i] !== ')' && group[i + 1] !== ')') {
                         return false
