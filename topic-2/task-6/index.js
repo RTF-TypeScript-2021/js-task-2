@@ -12,7 +12,7 @@
 const miniMathLibExtended = {
     pi: 3.14,
     volume(radius, height) {
-        if (typeof (radius && height) === 'number' && (radius && height) > 0) {
+        if (typeof (radius && height) === 'number' && radius > 0 && height > 0) {
             return Math.pow(radius, 2) * this.pi * height
         }
         else {
@@ -20,7 +20,6 @@ const miniMathLibExtended = {
         }
     }
 }
-
 function cylinderVolumeAccurate(pi) {
     if (typeof pi === 'number' && pi > 0) {
         return function (radius, height) {
@@ -30,6 +29,5 @@ function cylinderVolumeAccurate(pi) {
         throw new Error('Число Пи должно быть положительным')
     }
 }
-
 module.exports.miniMathLibExtended = miniMathLibExtended;
 module.exports.cylinderVolumeAccurate = cylinderVolumeAccurate;
