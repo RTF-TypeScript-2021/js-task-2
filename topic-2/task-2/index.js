@@ -17,7 +17,7 @@ const arrayStripped = (array, size) => {
     if (Number.isInteger(size) && Array.isArray(array)) {
         const a = array.length / size
         let arr = []
-        for (i = 0; i < a; i++) {
+        for (let i = 0; i < a; i++) {
             let arr_1 = []
             for (let b = 0; b < size; b++) {
                 if (array.length === 0) {
