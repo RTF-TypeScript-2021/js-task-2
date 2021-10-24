@@ -14,21 +14,26 @@
  * @returns массив разбитый на группы
 */
 const arrayStripped = (array, size) => {
-    if (Number.isInteger(size) && Array.isArray(array)) {
-        const a = array.length / size
-        let arr = []
-        for (let i = 0; i < a; i++) {
-            let arr_1 = []
-            for (let b = 0; b < size; b++) {
-                if (array.length === 0) {
-                    break
-                }
-                arr_1.push(array[0])
-                array.splice(0, 1)
-            }
-            arr.push(arr_1)
+    if (Number.isInteger(size)) {
+        if (!Array.isArray(array) || array.length == 0) {
+            return []
         }
-        return arr
+        else if (Array.isArray(array)) {
+            const a = array.length / size
+            let arr = []
+            for (let i = 0; i < a; i++) {
+                let arr_1 = []
+                for (let b = 0; b < size; b++) {
+                    if (array.length === 0) {
+                        break
+                    }
+                    arr_1.push(array[0])
+                    array.splice(0, 1)
+                }
+                arr.push(arr_1)
+            }
+            return arr
+        }
     }
     else {
         throw new Error('Ожидался массив и целосчисленный разделитель')
