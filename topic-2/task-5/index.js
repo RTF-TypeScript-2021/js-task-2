@@ -7,8 +7,9 @@ import {miniMathLib} from "../task-4";
  * Модифицировать miniMathLib из прошлой задачи - запрещено
  */
 function accurateAreaCalc() {
-    
-}
+    miniMathLib.pi = 3.14159;
 
+    return miniMathLib.circleArea;
+}
 
 module.exports.accurateAreaCalc = accurateAreaCalc
